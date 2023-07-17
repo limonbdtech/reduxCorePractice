@@ -16,12 +16,33 @@ let add =()=>{
     }
 }
 
+let sub = ()=>{
+    return{
+        type:"Sub"
+    }
+}
+
+let reset = ()=>{
+    return{
+        type:"Reset"
+    }
+}
 let incriment = (state=initialstate,action)=>{
     switch (action.type) {
         case "Add":
             return {
                 ...state,
                 count:state.count + 1
+            }
+        case "Sub":
+            return{
+             ...state,
+             count:state.count-1
+            };
+        case "Reset":
+            return{
+             ...state,
+             count: state.count = 0
             }
             
         default:
@@ -37,12 +58,15 @@ store.subscribe(()=>{
 })
 
 store.dispatch(add())
+store.dispatch(add())
+store.dispatch(add())
+store.dispatch(add())
+store.dispatch(sub())
+store.dispatch(reset())
 
-// store.dispatch({type:"Add"})
-// store.dispatch({type:"Add"})
-// store.dispatch({type:"Add"})
-// console.log(add())
-// add()
+store.dispatch(add())
+
+
 
 
 
